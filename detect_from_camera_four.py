@@ -17,21 +17,21 @@ class_names = [
     'up_left', 'up_middle', 'up_right'
 ]
 
-# ✅ 拍照函式：直到成功為止
+# 拍照函式：直到成功為止
 def capture_image(output_path=img_path):
     cap = cv2.VideoCapture(0)  # 啟用攝影機
     while True:
         ret, frame = cap.read()
         if ret:
             cv2.imwrite(output_path, frame)
-            print(f"✅ 成功儲存圖片：{output_path}")
+            print(f"成功儲存圖片：{output_path}")
             break
         else:
-            print("❌ 拍照失敗，1 秒後重試...")
+            print("拍照失敗，1 秒後重試...")
             time.sleep(1)
     cap.release()
 
-# ✅ YOLO 偵測並回傳實際座標
+# YOLO 偵測並回傳實際座標
 def run_yolo_and_get_coords(img_path):
     model = YOLO("runs/detect/train/weights/best.pt")  # 匯入訓練好的模型
     results = model.predict(
