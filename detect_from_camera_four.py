@@ -33,7 +33,7 @@ def capture_image(output_path=img_path):
 
 # YOLO 偵測並回傳實際座標
 def run_yolo_and_get_coords(img_path):
-    model = YOLO("runs/detect/train/weights/best.pt")  # 匯入訓練好的模型
+    model = YOLO("yolov8.two/runs/detect/train/weights/best.pt")  # 匯入訓練好的模型
     results = model.predict(
         source=img_path,
         save_txt=True,
